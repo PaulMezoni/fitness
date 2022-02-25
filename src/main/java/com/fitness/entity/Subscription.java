@@ -13,9 +13,10 @@ public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @Column(name = "tariff")
-    String tariff;
-    LocalDateTime dateNachalo;
-    LocalDateTime End;
+    @Column(name = "nameTariff")
+    String nameTariff;
+    Integer countOfVisit;
+    Integer restOfVisit;
+
 
 }
