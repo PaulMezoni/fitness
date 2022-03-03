@@ -2,6 +2,7 @@ package com.fitness.mvc.service;
 
 import com.fitness.entity.Person;
 import com.fitness.mvc.repository.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class PersonServiceImpl implements PersonService {
     private final PersonRepository repository;
 
+    @Autowired
     public PersonServiceImpl(PersonRepository repository) {
         this.repository = repository;
     }
