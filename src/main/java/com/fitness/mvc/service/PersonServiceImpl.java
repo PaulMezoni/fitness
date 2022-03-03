@@ -14,9 +14,8 @@ public class PersonServiceImpl implements PersonService {
         this.repository = repository;
     }
 
-
     @Override
-    public Person getById (Long id) {
+    public Person getById(Long id) {
         return repository.getById(id);
     }
 
