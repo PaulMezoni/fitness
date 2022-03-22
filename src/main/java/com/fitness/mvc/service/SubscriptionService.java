@@ -13,4 +13,6 @@ public interface SubscriptionService {
     Subscription saveSubscription(Subscription subscription);
 
     Subscription checkUpdateDateTime(Subscription subscription);
+
+    void deleteSubscription(Long id);
 }

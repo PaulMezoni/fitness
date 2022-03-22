@@ -60,4 +60,9 @@ public class SubscriptionServiceImpl implements SubscriptionService {
         }
         return subscription;
     }
+
+    @Override
+    public void deleteSubscription(Long id) {
+        subscriptionRepository.deleteById(id);
+    }
 }

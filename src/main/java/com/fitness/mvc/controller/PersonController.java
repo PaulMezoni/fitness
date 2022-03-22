@@ -2,7 +2,7 @@ package com.fitness.mvc.controller;
 
 import com.fitness.entity.Person;
 import com.fitness.mvc.service.PersonService;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,11 +12,12 @@ import java.util.List;
 public class PersonController {
     private final PersonService personService;
 
+    @Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
 
-    @GetMapping(path = "/persons")
+    @GetMapping(value = "/persons")
     public List<Person> getAllPersons() {
         return personService.findByAll();
     }
@@ -26,17 +27,17 @@ public class PersonController {
         return personService.getById(id);
     }
 
-    @PostMapping(value = "/persons")
+    @PostMapping(value = "/person")
     public Person addPerson(@RequestBody Person std) {
         return personService.savePerson(std);
     }
 
-    @PutMapping(value = "/persons/{id}")
-    public Person updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
+    @PutMapping(value = "/person/{id}")
+    public Person updatePerson(@RequestBody Person person) {
         return personService.savePerson(person);
     }
 
-    @DeleteMapping(value = "/persons/{id}")
+    @DeleteMapping(value = "/person/{id}")
     public String deletePerson(@PathVariable("id") long id) {
         personService.deletePerson(id);
         return "Person with ID :" + id + " is deleted";
