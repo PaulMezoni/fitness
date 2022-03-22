@@ -2,12 +2,16 @@ package com.fitness.mvc.service;
 
 import com.fitness.entity.Subscription;
 import com.fitness.mvc.repository.SubscriptionRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+@Service
+@Slf4j
 public class SubscriptionServiceImpl implements SubscriptionService {
     // абонементы
     // на один месяц
@@ -50,10 +54,10 @@ public class SubscriptionServiceImpl implements SubscriptionService {
         LocalDateTime end = subscription.getEndDateTime();
         long difference = ChronoUnit.DAYS.between(now, end);
         if (difference > 0) {
-            subscription.setRemainingNumberOfDays(difference);
+            log.info(" тренировки еще есть ");
         } else {
-            System.out.println(" посещения в зале закончились ");
+            log.info(" посещения в зале закончились ");
         }
-        return subscriptionRepository.save(subscription);
+        return subscription;
     }
 }

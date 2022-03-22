@@ -14,21 +14,18 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name = "persons")
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    // Логин
-    @Column(name = "user_name", nullable = false, unique = true, length = 50)
-    private String username;
+public class Person extends BaseEntityId {
+
     // Имя
-    @Column(name = "first_name", length = 50)
+    @Column(name = "first_name", length = 50, nullable = false)
     private String firstName;
+
     // Фамилия
-    @Column(name = "last_name", length = 50)
+    @Column(name = "last_name", length = 50, nullable = false)
     private String lastName;
+
     // email
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
     // Номер телефона
@@ -36,7 +33,7 @@ public class Person {
     private String phone;
 
     // Дата рождения
-    @Column(name = "birthday_date")
+    @Column(name = "birthday_date", nullable = false)
     private LocalDate birthdayDate;
 
     // Пол
@@ -47,8 +44,9 @@ public class Person {
     // Пользователь активен (true) или заблокирован (false)
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
+
     // Лист абонементов
-    @OneToMany
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     public List<Subscription> subscriptionList;
 
 }

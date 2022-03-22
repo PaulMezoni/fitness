@@ -13,28 +13,26 @@ import java.time.LocalDateTime;
 @Table(name = "subscription")
 @NoArgsConstructor
 //Абонемент (подписка)
-public class Subscription {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+public class Subscription extends BaseEntityId {
+
+    // название тарифа
+    @Column(name = "name_tariff")
     String nameTariff;
+
     // Стоимость пакета
     @Column(name = "total_price", nullable = false)
     private Integer totalPrice;
+
     // Время начала действия пакета
     @Column(name = "start_date_time", nullable = false)
     private LocalDateTime startDateTime;
+
     // Время завершения действия пакета
     @Column(name = "end_date_time")
     private LocalDateTime endDateTime;
-    // Оставшееся количество тренировок
-    @Column(name = "remaining_number_of_days", nullable = false)
-    private long remainingNumberOfDays;
 
-//    // количество посещений
-//    int countOfVisit;
-//    // остаток визита
-//    int restOfVisit;
+    @ManyToOne
+    @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
 
-    boolean isLimited;
 }

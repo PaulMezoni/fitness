@@ -2,11 +2,12 @@ package com.fitness.mvc.controller;
 
 import com.fitness.entity.Person;
 import com.fitness.mvc.service.PersonService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/api")
+@RestController
 @RequestMapping("/api")
 public class PersonController {
     private final PersonService personService;
@@ -15,7 +16,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping(value = "/persons")
+    @GetMapping(path = "/persons")
     public List<Person> getAllPersons() {
         return personService.findByAll();
     }
