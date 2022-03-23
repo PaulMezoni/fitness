@@ -28,8 +28,8 @@ public class PersonController {
     }
 
     @PostMapping(value = "/person")
-    public Person addPerson(@RequestBody Person std) {
-        return personService.savePerson(std);
+    public Person addPerson(@RequestBody Person person) {
+        return personService.savePerson(person);
     }
 
     @PutMapping(value = "/person/{id}")

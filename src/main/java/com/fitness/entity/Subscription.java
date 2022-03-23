@@ -35,4 +35,8 @@ public class Subscription extends BaseEntityId {
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
+    // нужен ли HASHCODE ??? столкнулся с такой штукой как baseentity
+    // у него Id общий для всех сущностей а мне нужно переопределить hashcode id
+
+
 }

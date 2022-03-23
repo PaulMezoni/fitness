@@ -1,6 +1,5 @@
 package com.fitness.entity;
 
-import com.fitness.enums.Gender;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,11 +34,6 @@ public class Person extends BaseEntityId {
     // Дата рождения
     @Column(name = "birthday_date", nullable = false)
     private LocalDate birthdayDate;
-
-    // Пол
-    @Column(name = "gender", nullable = false)
-    @Enumerated(EnumType.ORDINAL)
-    private Gender gender;
 
     // Пользователь активен (true) или заблокирован (false)
     @Column(name = "enabled", nullable = false)

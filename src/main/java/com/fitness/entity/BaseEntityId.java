@@ -11,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 /**
  * Базовая сущность для ID
  */
+// стоит ли делать общий класс ID для всех сущностей ?
 @MappedSuperclass
 @Getter
 @Setter

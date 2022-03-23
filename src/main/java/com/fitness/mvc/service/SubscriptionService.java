@@ -10,9 +10,11 @@ public interface SubscriptionService {
 
     List<Subscription> findByAll();
 
-    Subscription saveSubscription(Subscription subscription);
+    Subscription saveSubscriptionMonth(Subscription subscription);
 
-    Subscription checkUpdateDateTime(Subscription subscription);
+    Subscription saveSubscriptionSixMonths(Subscription subscription);
+
+    Subscription checkingRemainingVisits(Subscription subscription);
 
     void deleteSubscription(Long id);
 }

@@ -28,17 +28,18 @@ public class SubscriptionController {
     }
 
     @PostMapping(value = "/subscription")
-    public Subscription addPerson(@RequestBody Subscription subscription) {
-        return subscriptionService.saveSubscription(subscription);
+    public Subscription addSubscription(@RequestBody Subscription subscription) {
+        return subscriptionService.saveSubscriptionMonth(subscription);
     }
 
     @PutMapping(value = "/subscription/{id}")
-    public Subscription updatePerson(@RequestBody Subscription subscription) {
-        return subscriptionService.saveSubscription(subscription);
+    public Subscription updateSubscription(@RequestBody Subscription subscription) {
+        return subscriptionService.saveSubscriptionMonth(subscription);
     }
 
+    // нужно ли удалять абонемент из бд ?
     @DeleteMapping(value = "/subscription/{id}")
-    public String deletePerson(@PathVariable("id") long id) {
+    public String deleteSubscription(@PathVariable("id") long id) {
         subscriptionService.deleteSubscription(id);
         return "Subscription with ID :" + id + " is deleted";
     }
